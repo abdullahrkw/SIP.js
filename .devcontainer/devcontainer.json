@@ -1,0 +1,13 @@
+{
+    "name": "SIP.js",
+    "dockerFile": "Dockerfile",
+    "appPort": [],
+    "extensions": [
+		  "CoenraadS.bracket-pair-colorizer",
+		  "Tyriar.sort-lines"
+    ],
+    "runArgs": [
+      "--net","host",
+    ]
+      
+}
