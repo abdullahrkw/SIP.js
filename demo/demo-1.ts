@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-console */
-import { SimpleUser, SimpleUserDelegate, SimpleUserOptions } from "../src/platform/web";
+import { SimpleUser, SimpleUserDelegate, SimpleUserOptions} from "../src/platform/web";
 import { getAudio, getButton, getButtons, getInput, getSpan } from "./demo-utils";
+import { UserAgent, UserAgentOptions, Invitation } from "../src/api";
 
 const serverSpan = getSpan("server");
 const targetSpan = getSpan("target");
@@ -15,16 +16,20 @@ const dtmfSpan = getSpan("dtmf");
 const holdCheckbox = getInput("hold");
 const muteCheckbox = getInput("mute");
 
+
 // WebSocket Server URL
-const webSocketServer = "wss://edge.sip.onsip.com";
+const webSocketServer = "wss://testsomecompinbgp.ztelco.local:8089/ws";
 serverSpan.innerHTML = webSocketServer;
 
 // Destination URI
-const target = "sip:echo@sipjs.onsip.com";
+const target = "sip:101@testsomecompinbgp.ztelco.local";
 targetSpan.innerHTML = target;
 
 // Name for demo user
 const displayName = "SIP.js Demo";
+const aor = "sip:1011@testsomecompinbgp.ztelco.local";
+const authorizationUsername = '1011';
+const authorizationPassword = '1011pasw';
 
 // SimpleUser delegate
 const simpleUserDelegate: SimpleUserDelegate = {
@@ -58,6 +63,7 @@ const simpleUserDelegate: SimpleUserDelegate = {
 
 // SimpleUser options
 const simpleUserOptions: SimpleUserOptions = {
+  aor,
   delegate: simpleUserDelegate,
   media: {
     remote: {
@@ -66,7 +72,9 @@ const simpleUserOptions: SimpleUserOptions = {
   },
   userAgentOptions: {
     // logLevel: "debug",
-    displayName
+    displayName,
+    authorizationPassword,
+    authorizationUsername,
   }
 };
 
