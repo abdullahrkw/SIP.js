@@ -18,7 +18,9 @@ const muteCheckbox = getInput("mute");
 
 
 // WebSocket Server URL
-const webSocketServer = "wss://testsomecompinbgp.ztelco.local:8089/ws";
+const webSocketServer = "wss://call-recordings.dev.ringplan.com/test/websocket-server";
+
+
 serverSpan.innerHTML = webSocketServer;
 
 // Destination URI
@@ -27,9 +29,9 @@ targetSpan.innerHTML = target;
 
 // Name for demo user
 const displayName = "SIP.js Demo";
-const aor = "sip:1011@testsomecompinbgp.ztelco.local";
-const authorizationUsername = '1011';
-const authorizationPassword = '1011pasw';
+const aor = "sip:1012@testsomecompinbgp.ztelco.local";
+const authorizationUsername = '1012';
+const authorizationPassword = '1012pasw';
 
 // SimpleUser delegate
 const simpleUserDelegate: SimpleUserDelegate = {
